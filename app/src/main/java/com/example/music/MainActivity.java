@@ -28,12 +28,14 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Print Log
 
+        TextView t2 = (TextView) findViewById(R.id.test2);
+        t2.setText("Score : "+ count);
+
+        t2.setVisibility(View.VISIBLE);
+        // Print Log
         Log.i(TAG,"onCreate");
     }
-
-
     @Override
     protected void onStop() {
         super.onStop();
@@ -81,7 +83,11 @@ public class MainActivity extends AppCompatActivity  {
         TextView t = (TextView) findViewById(R.id.test);
         VideoView v = (VideoView) findViewById(R.id.video1);
         TextView t1 = (TextView) findViewById(R.id.textView3);
+        TextView t2 = (TextView) findViewById(R.id.test2);
+        Button b = (Button) findViewById(R.id.button2);
         t.setText("Information : This one is an application ! for display music\n develop by\n luidjy aubel");
+        t2.setVisibility(View.INVISIBLE);
+        b.setVisibility(View.INVISIBLE);
         v.setVisibility(View.INVISIBLE);
         t1.setVisibility(View.INVISIBLE);
         t.setVisibility(View.VISIBLE);
@@ -91,7 +97,12 @@ public class MainActivity extends AppCompatActivity  {
         Log.i(TAG,"OnClickHome");
         TextView t = (TextView) findViewById(R.id.test);
         VideoView v = (VideoView) findViewById(R.id.video1); // initiate a video view
+        TextView t2 = (TextView) findViewById(R.id.test2);
+        Button b = (Button) findViewById(R.id.button2);
+        t2.setText("Score : "+ count);
 
+        b.setVisibility(View.VISIBLE);
+        t2.setVisibility(View.VISIBLE);
         t.setVisibility(View.INVISIBLE);
         v.setVisibility(View.INVISIBLE);
     }
@@ -99,6 +110,8 @@ public class MainActivity extends AppCompatActivity  {
         //Toast.makeText(this, "You click on 'Info' button!", Toast.LENGTH_SHORT).show();
         Log.i(TAG,"OnClickVid");
         TextView t = (TextView) findViewById(R.id.test);
+        TextView t2 = (TextView) findViewById(R.id.test2);
+        Button b = (Button) findViewById(R.id.button2);
         VideoView v = (VideoView) findViewById(R.id.video1); // initiate a video view
         String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.videoplayback;
         Uri uri = Uri.parse(videoPath);
@@ -107,6 +120,8 @@ public class MainActivity extends AppCompatActivity  {
         MediaController mediaController = new MediaController(this);
         v.setMediaController(mediaController);
         mediaController.setAnchorView(v);
+        b.setVisibility(View.INVISIBLE);
+        t2.setVisibility(View.INVISIBLE);
         v.setVisibility(View.VISIBLE);
         t.setVisibility(View.INVISIBLE);
         v.start();
@@ -119,7 +134,9 @@ public class MainActivity extends AppCompatActivity  {
         TextView t2 = (TextView) findViewById(R.id.test2);
         t2.setText("Score : "+ count);
         count++;
-
+        if (count == 50.0){
+            Toast.makeText(this, "tu as cliquer 50 fois sérieusement ?", Toast.LENGTH_SHORT).show();
+        }
         v.setVisibility(View.INVISIBLE);
         t.setVisibility(View.INVISIBLE);
         t2.setVisibility(View.VISIBLE);

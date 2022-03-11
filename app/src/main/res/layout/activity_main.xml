@@ -93,7 +93,7 @@
         android:layout_marginTop="176dp"
         android:text="test"
         android:textSize="30dp"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
