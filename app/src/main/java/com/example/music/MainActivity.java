@@ -27,14 +27,7 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Print Log
-        VideoView v = (VideoView) findViewById(R.id.video1); // initiate a video view
-        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.videoplayback;
-        Uri uri = Uri.parse(videoPath);
-        v.setVideoURI(uri);
 
-        MediaController mediaController = new MediaController(this);
-        v.setMediaController(mediaController);
-        mediaController.setAnchorView(v);
         Log.i(TAG,"onCreate");
     }
 
@@ -86,7 +79,7 @@ public class MainActivity extends AppCompatActivity  {
         TextView t = (TextView) findViewById(R.id.test);
         VideoView v = (VideoView) findViewById(R.id.video1);
         TextView t1 = (TextView) findViewById(R.id.textView3);
-        t.setText("Information : develop by\n luidjy aubel");
+        t.setText("Information : This one is an application ! for display music\n develop by\n luidjy aubel");
         v.setVisibility(View.INVISIBLE);
         t1.setVisibility(View.INVISIBLE);
         t.setVisibility(View.VISIBLE);
@@ -95,24 +88,22 @@ public class MainActivity extends AppCompatActivity  {
         //Toast.makeText(this, "You click on 'Info' button!", Toast.LENGTH_SHORT).show();
         Log.i(TAG,"OnClickHome");
         TextView t = (TextView) findViewById(R.id.test);
-        TextView t1 = (TextView) findViewById(R.id.textView3);
-        VideoView v = (VideoView) findViewById(R.id.video1);
-        t1.setText("This one is an application !\n for display music");
-        v.setVisibility(View.INVISIBLE);
+
+
         t.setVisibility(View.INVISIBLE);
-        t1.setVisibility(View.VISIBLE);
     }
     public void onClickHandler2(View view)  {
         //Toast.makeText(this, "You click on 'Info' button!", Toast.LENGTH_SHORT).show();
         Log.i(TAG,"OnClickVid");
         VideoView v = (VideoView) findViewById(R.id.video1); // initiate a video view
-        String videoPath = "https://www.youtube.com/watch?v=Pnk_WELPzAQ";
+        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.videoplayback;
         Uri uri = Uri.parse(videoPath);
         v.setVideoURI(uri);
 
         MediaController mediaController = new MediaController(this);
         v.setMediaController(mediaController);
         mediaController.setAnchorView(v);
+        v.setVisibility(View.VISIBLE);
         v.start();
     }
 }
