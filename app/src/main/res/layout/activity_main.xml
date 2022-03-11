@@ -73,11 +73,37 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="120dp"
+        android:layout_marginBottom="444dp"
+        android:onClick="onClickHandler3"
+        android:text="Click on me !"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/test2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="176dp"
+        android:text="test"
+        android:textSize="30dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <VideoView
         android:id="@+id/video1"
         android:layout_width="300dp"
         android:layout_height="350dp"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="76dp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,8 +113,8 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginBottom="512dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginBottom="572dp"
         android:text="TextView"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"

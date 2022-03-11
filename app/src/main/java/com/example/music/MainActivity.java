@@ -22,6 +22,8 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity  {
     public static final String TAG ="MyMessage : ";
 
+    private float count = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,13 +90,15 @@ public class MainActivity extends AppCompatActivity  {
         //Toast.makeText(this, "You click on 'Info' button!", Toast.LENGTH_SHORT).show();
         Log.i(TAG,"OnClickHome");
         TextView t = (TextView) findViewById(R.id.test);
-
+        VideoView v = (VideoView) findViewById(R.id.video1); // initiate a video view
 
         t.setVisibility(View.INVISIBLE);
+        v.setVisibility(View.INVISIBLE);
     }
     public void onClickHandler2(View view)  {
         //Toast.makeText(this, "You click on 'Info' button!", Toast.LENGTH_SHORT).show();
         Log.i(TAG,"OnClickVid");
+        TextView t = (TextView) findViewById(R.id.test);
         VideoView v = (VideoView) findViewById(R.id.video1); // initiate a video view
         String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.videoplayback;
         Uri uri = Uri.parse(videoPath);
@@ -104,6 +108,21 @@ public class MainActivity extends AppCompatActivity  {
         v.setMediaController(mediaController);
         mediaController.setAnchorView(v);
         v.setVisibility(View.VISIBLE);
+        t.setVisibility(View.INVISIBLE);
+        v.start();
+    }
+    public void onClickHandler3(View view)  {
+        //Toast.makeText(this, "You click on 'Info' button!", Toast.LENGTH_SHORT).show();
+        Log.i(TAG,"OnClickScore");
+        TextView t = (TextView) findViewById(R.id.test);
+        VideoView v = (VideoView) findViewById(R.id.video1); // initiate a video view
+        TextView t2 = (TextView) findViewById(R.id.test2);
+        t2.setText("Score : "+ count);
+        count++;
+
+        v.setVisibility(View.INVISIBLE);
+        t.setVisibility(View.INVISIBLE);
+        t2.setVisibility(View.VISIBLE);
         v.start();
     }
 }
