@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -26,6 +27,14 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Print Log
+        VideoView v = (VideoView) findViewById(R.id.video1); // initiate a video view
+        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.videoplayback;
+        Uri uri = Uri.parse(videoPath);
+        v.setVideoURI(uri);
+
+        MediaController mediaController = new MediaController(this);
+        v.setMediaController(mediaController);
+        mediaController.setAnchorView(v);
         Log.i(TAG,"onCreate");
     }
 
@@ -96,14 +105,14 @@ public class MainActivity extends AppCompatActivity  {
     public void onClickHandler2(View view)  {
         //Toast.makeText(this, "You click on 'Info' button!", Toast.LENGTH_SHORT).show();
         Log.i(TAG,"OnClickVid");
-
-        Uri uri = Uri.parse("\"https://drive.google.com/file/d/1ztPpF9QL8P8tKDrEacJFMA9-kq6iVD66/view?usp=sharing");
         VideoView v = (VideoView) findViewById(R.id.video1); // initiate a video view
-        TextView t1 = (TextView) findViewById(R.id.textView3);
-        v.setVisibility(View.VISIBLE);
-        t1.setVisibility(View.INVISIBLE);
-
+        String videoPath = "https://www.youtube.com/watch?v=Pnk_WELPzAQ";
+        Uri uri = Uri.parse(videoPath);
         v.setVideoURI(uri);
+
+        MediaController mediaController = new MediaController(this);
+        v.setMediaController(mediaController);
+        mediaController.setAnchorView(v);
         v.start();
     }
 }
